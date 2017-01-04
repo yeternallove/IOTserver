@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/linearLayout_Light"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="小灯"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:textSize="@dimen/fragment_textSize"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tv_light" />
+
+        <Switch
+            android:text="开"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/swi_light"
+            android:textSize="20dp"
+            android:layout_marginEnd="52dp"
+            android:layout_alignTop="@+id/tv_light"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearLayout_LED"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/linearLayout_Light"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.09">
+
+        <TextView
+            android:text="LED灯"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="11dp"
+            android:textSize="@dimen/fragment_textSize"
+            android:id="@+id/tv_led" />
+
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="95dp"
+            app:srcCompat="@drawable/ic_light"
+            android:id="@+id/img_light"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_ledInfo"
+            android:textSize="@dimen/fragment_textSize"
+            android:layout_alignBottom="@+id/tv_led"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearLayout_Moto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/linearLayout_LED"
+        android:layout_height="100dp">
+
+        <TextView
+            android:text="Moto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_moto"
+            android:layout_marginStart="31dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/fragment_textSize" />
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar_moto"
+            android:layout_width="200dp"
+            android:layout_marginEnd="46dp"
+            android:layout_alignBottom="@+id/tv_moto"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!--con-->
+    <dimen name="fragment_textSize">20dp</dimen>
+
+    <dimen name="activity_select_width">50dp</dimen>
+    <dimen name="height_popupWindow">40dp</dimen>
+    <dimen name="popup_padding_leftorright">10dp</dimen>
+    <dimen name="shadowRadius_num">5dp</dimen>
+    <dimen name="margin_chat_activity">5dp</dimen>
+    <dimen name="padding_chat_activity">10dp</dimen>
+    <dimen name="padding_end_chat_activity">15dp</dimen>
+
+    <!--adapter-->
+    <dimen name="max_img_picture_size">100dp</dimen>
+    <dimen name="padding_img_picture">8dp</dimen>
+    <dimen name="padding_start_img_picture">13dp</dimen>
+
+    <!-- Calendar values -->
+    <dimen name="circle_selected_size">32dp</dimen>
+    <dimen name="day_cell_height">52dp</dimen>
+    <dimen name="text_day_size">14dp</dimen>
+    <dimen name="calendar_header_height">20dp</dimen>
+
+    <!-- Agenda values -->
+    <dimen name="circle_day_size">60dp</dimen>
+    <dimen name="agenda_event_view_padding_left">70dp</dimen>
+    <dimen name="agenda_event_view_padding_top">5dp</dimen>
+    <dimen name="agenda_event_view_padding_right">15dp</dimen>
+    <dimen name="agenda_event_view_padding_bottom">5dp</dimen>
+
+    <!-- other -->
+    <dimen name="padding_search_bar">5dp</dimen>
+    <dimen name="size_avatar">50dp</dimen>
+    <dimen name="field_textsize">14sp</dimen>
+    <dimen name="field_margin_right">5dp</dimen>
+    <dimen name="call_button_padding_vertical">10dp</dimen>
+    <dimen name="call_button_padding_left">25dp</dimen>
+    <dimen name="call_button_padding_right">25dp</dimen>
+    <dimen name="sidebar_text_size">10dp</dimen>
+    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_spacing">1dp</dimen>
+</resources>

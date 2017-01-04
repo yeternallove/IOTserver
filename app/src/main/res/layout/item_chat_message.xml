@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="13dp" >
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_chat_activity" >
+
+        <ImageView
+            android:id="@+id/img_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin_chat_activity"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_userName"
+            android:text="测试者"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/img_userhead"
+            android:layout_marginStart="@dimen/margin_chat_activity"/>
+
+        <TextView
+            android:maxWidth="225.0dip"
+            android:id="@+id/tv_chatcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_chat_activity"
+            android:background="@drawable/select_chatfrom_other_bg"
+            android:autoLink="web"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="left|center_vertical"
+            android:lineSpacingExtra="2dp"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv_userName"
+            android:layout_toEndOf="@+id/img_userhead"
+            android:padding="@dimen/padding_chat_activity"
+            android:paddingStart="@dimen/padding_end_chat_activity" />
+    </RelativeLayout>
+
+</LinearLayout>
