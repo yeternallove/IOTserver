@@ -111,6 +111,7 @@ public class Fragment_iot_chat extends Fragment {
             public void onClick(View view) {
                 String msg = edtSend.getText().toString();
                 if (msg == null || "".equals(msg)) {
+                    return;
                 }
                 mChatMessage = new ChatMessageBean(ChatAdapter.USER,ChatAdapter.USER, System.currentTimeMillis(), msg);
                 chat(mChatMessage);

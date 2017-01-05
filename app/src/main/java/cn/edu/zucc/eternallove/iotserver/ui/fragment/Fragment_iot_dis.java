@@ -63,7 +63,7 @@ public class Fragment_iot_dis extends Fragment {
         swiPort.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (swiPort.isChecked()) {
+                if (isChecked) {
                     //开启socket服务
                     server = new SocketServer(getActivity(),port);
                     server.start();
@@ -74,7 +74,7 @@ public class Fragment_iot_dis extends Fragment {
                     }
                     txt_host.setText(ip);
                     SocketServer.isContinue = true;
-                    Toast.makeText(getContext(), "Socket 服务开启，端口号为:" + port, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Socket 服务开启，端口号为:" + port, Toast.LENGTH_SHORT).show();
 
                 } else {
                     try {
@@ -121,7 +121,6 @@ public class Fragment_iot_dis extends Fragment {
         }
     }
 
-
     public String getHostIP() {
         WifiManager wifiManager = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);
         //判断wifi是否开启
@@ -143,5 +142,6 @@ public class Fragment_iot_dis extends Fragment {
                 ((i >> 16 ) & 0xFF) + "." +
                 ( i >> 24 & 0xFF) ;
     }
+
 
 }

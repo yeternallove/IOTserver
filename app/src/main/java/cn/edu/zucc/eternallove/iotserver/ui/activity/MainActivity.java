@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
             switch (position){
                 case 0: return Fragment_iot_dis.getInstance();
                 case 1: return Fragment_iot_con.getInstance();
-                case 2:return Fragment_iot_chat.getInstance();
-                default:return null;
+                case 2: return Fragment_iot_chat.getInstance();
+                default: return null;
                 }
         }
 

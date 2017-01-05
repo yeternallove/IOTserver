@@ -30,7 +30,7 @@ public class ReceiveIOTData {
 			throw new Exception(" 起始标志错误 !");
 		}
 
-		ID = ( char) bytes[4];
+		ID = (char) bytes[4];
 		sensor_num = (char)bytes[5];
 		if(IS){
 			ID = '0';

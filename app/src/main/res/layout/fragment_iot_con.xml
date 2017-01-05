@@ -45,16 +45,6 @@
         android:layout_alignParentStart="true"
         android:layout_weight="0.09">
 
-        <TextView
-            android:text="LED灯"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="11dp"
-            android:textSize="@dimen/fragment_textSize"
-            android:id="@+id/tv_led" />
-
         <ImageView
             android:layout_width="115dp"
             android:layout_height="95dp"
