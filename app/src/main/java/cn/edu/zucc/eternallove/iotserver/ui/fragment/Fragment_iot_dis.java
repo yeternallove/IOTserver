@@ -106,15 +106,15 @@ public class Fragment_iot_dis extends Fragment {
             else
                 isOpen = "关";
             String info = "";
-            info = "心跳包 ：      "+d.getHearbeat()+"\n"
-                    +"iotID ：     "+String.valueOf(d.getID())+"\n"
+            info = "心跳包 ："+d.getHearbeat()+"\n"
+                    +"iotID ："+String.valueOf(d.getID())+"\n"
                     +"传感器数量 ："+d.getSensor_num()+"\n"
-                    +"温度 ：      "+String.valueOf(d.getSensor_data_frame1().getV1())+"\n"
-                    +"湿度 ：      "+String.valueOf(d.getSensor_data_frame1().getV2())+"\n"
-                    +"R ：         "+String.valueOf(d.getSensor_data_frame2().getV1())+"\n"
-                    +"G ：         "+String.valueOf(d.getSensor_data_frame2().getV2())+"\n"
-                    +"B ：         "+String.valueOf(d.getSensor_data_frame2().getV3())+"\n"
-                    +"红外 ：      "+isOpen+"\n";
+                    +"温度 ："+String.valueOf(d.getSensor_data_frame1().getV1())+"\n"
+                    +"湿度 ："+String.valueOf(d.getSensor_data_frame1().getV2())+"\n"
+                    +"R ："+String.valueOf(d.getSensor_data_frame2().getV1())+"\n"
+                    +"G ："+String.valueOf(d.getSensor_data_frame2().getV2())+"\n"
+                    +"B ："+String.valueOf(d.getSensor_data_frame2().getV3())+"\n"
+                    +"红外 ："+isOpen+"\n";
             txt_info.setText(info);
         } catch (Exception e) {
             e.printStackTrace();
