@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import cn.edu.zucc.eternallove.iotserver.R;
 import cn.edu.zucc.eternallove.iotserver.server.SocketServer;
+import cn.edu.zucc.eternallove.iotserver.ui.fragment.Fragment_iot_chat;
 import cn.edu.zucc.eternallove.iotserver.ui.fragment.Fragment_iot_con;
 import cn.edu.zucc.eternallove.iotserver.ui.fragment.Fragment_iot_dis;
 
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         setTitle("传感器"); //显示toolbar的默认title
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.viewpager_container);
@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (position == 1) {
                     setTitle("控制器");
+                }else if (position == 2) {
+                    setTitle("消息");
                 }
             }
             @Override
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         //socket 在程序处于后台或者屏幕关闭的时候关闭socket
         try {
-            if (!SocketServer.sst.isClosed()) {
+            if (SocketServer.sst!=null && !SocketServer.sst.isClosed()) {
                 SocketServer.sst.close(); //关闭Server socket
                 SocketServer.isContinue = false;//停止 socket继续执行
                 Fragment_iot_dis.getInstance().swiPort.setChecked(false);
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             switch (position){
                 case 0: return Fragment_iot_dis.getInstance();
                 case 1: return Fragment_iot_con.getInstance();
-                case 2:
+                case 2:return Fragment_iot_chat.getInstance();
                 default:return null;
                 }
         }

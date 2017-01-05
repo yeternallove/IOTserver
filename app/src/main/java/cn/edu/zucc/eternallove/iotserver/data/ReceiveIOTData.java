@@ -1,18 +1,20 @@
 package cn.edu.zucc.eternallove.iotserver.data;
 
+import android.widget.SeekBar;
+
 import cn.edu.zucc.eternallove.iotserver.util.DataDeal;
 
 /**
  * Created by falling on 2015/10/24.
  */
 public class ReceiveIOTData {
+	private static boolean IS = true;
 	private char ID;
 	private char sensor_num;
 	private short hearbeat;
 	private ReceiveSensorData sensor_data_frame1;
 	private ReceiveSensorData sensor_data_frame2;
 	private ReceiveSensorData sensor_data_frame3;
-
 	private byte[] bytes;
 
 	public ReceiveIOTData(byte[] b) throws Exception {
@@ -28,10 +30,12 @@ public class ReceiveIOTData {
 			throw new Exception(" 起始标志错误 !");
 		}
 
-//		ID = (char) new byte[]{0,};
-		ID = '0';
-//		sensor_num = (char)bytes[5];
-		sensor_num = '3';
+		ID = ( char) bytes[4];
+		sensor_num = (char)bytes[5];
+		if(IS){
+			ID = '0';
+			sensor_num = '3';
+		}
 		hearbeat = DataDeal.bytesToShort(bytes,6);
 		
 		byte[] date1 = new byte[16];

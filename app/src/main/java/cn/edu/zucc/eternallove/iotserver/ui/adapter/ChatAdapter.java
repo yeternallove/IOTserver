@@ -2,7 +2,6 @@ package cn.edu.zucc.eternallove.iotserver.ui.adapter;
 
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
 
     private static final int TYPE_MESSAGE_SEND = 0x1;
     private static final int TYPE_MESSAGE_RECEIVED = 0x2;
-    private final String mID;
+
+    public static final String USER = "Administrator";
+
     private List<ChatMessageBean> mPastList;
     private List<ChatMessageBean> mNewList;
 
@@ -42,7 +43,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
         this.mPastList = pastList;
         this.mNewList = newList;
         this.mContext = context;
-        this.mID = PreferenceManager.getDefaultSharedPreferences(context).getString("user_id",null);
         this.layoutInflater = LayoutInflater.from(mContext);
         this.cmb = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
         this.fairyDB = FairyDB.getInstance(context);
@@ -51,7 +51,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
     @Override
     public int getItemViewType(int position) {
         ChatMessageBean chatMessageBean = getRecivedBean(position);
-        if(chatMessageBean.getSender_id().equals(mID)){
+        if(chatMessageBean.getSender_id().equals(USER)){
             return TYPE_MESSAGE_SEND;
         }else {
             return TYPE_MESSAGE_RECEIVED;
@@ -91,34 +91,26 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
 //        messageHolder.imgUserhead
         if(position < getItemCount()-1){
             ChatMessageBean chatMessageOld = getRecivedBean(position+1);
-            if(chatMessageBean.getTimestampe()-chatMessageOld.getTimestampe() > 1800000){
+            if(chatMessageBean.getTimestampe()-chatMessageOld.getTimestampe() > 300000){
                 messageHolder.Timestamp.setText(DateUtil.getReportDate(chatMessageBean.getTimestampe()));
+                messageHolder.Timestamp.setVisibility(View.VISIBLE);
             }else{
                 messageHolder.Timestamp.setVisibility(View.GONE);
             }
         }else {
             messageHolder.Timestamp.setText(DateUtil.getReportDate(chatMessageBean.getTimestampe()));
+            messageHolder.Timestamp.setVisibility(View.VISIBLE);
         }
         messageHolder.UserName.setVisibility(View.GONE);
     }
 
     private ChatMessageBean getRecivedBean(int position){
         int length = mNewList.size();
-        if(position > length ){
-            return mPastList.get(position - length - 1);
+        if(position >= length ){
+            return mPastList.get(position - length );
         }else{
-            return mNewList.get(length  - position);
+            return mNewList.get(length  - position -1);
         }
-    }
-
-    private boolean removeReciveditem(int position){
-        int length = mNewList.size();
-        if(position > length ){
-            mPastList.remove(position - length - 1);
-        }else{
-            mNewList.remove(length  - position);
-        }
-        return true;
     }
 
     @Override

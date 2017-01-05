@@ -24,13 +24,15 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/edt_send"
             android:layout_weight="1" />
 
         <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
+            android:text="@string/btn_send"
+            android:layout_width="63dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_send" />
+            android:id="@+id/btn_send"
+            android:layout_weight="0.04"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless" />
     </LinearLayout>
 </LinearLayout>

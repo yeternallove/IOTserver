@@ -12,17 +12,15 @@ public class ChatMessageBean {
     private String recipient_id;
     private long timestampe;
     private String message;
-    private String picture;
 
     public ChatMessageBean() {
     }
 
-    public ChatMessageBean(String sender_id, String recipient_id, long timestampe, String message, String picture) {
+    public ChatMessageBean(String sender_id, String recipient_id, long timestampe, String message) {
         this.sender_id = sender_id;
         this.recipient_id = recipient_id;
         this.timestampe = timestampe;
         this.message = message;
-        this.picture = picture;
         this.id = -1;
     }
 
@@ -64,13 +62,5 @@ public class ChatMessageBean {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
     }
 }

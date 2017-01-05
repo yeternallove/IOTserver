@@ -29,7 +29,10 @@ import cn.edu.zucc.eternallove.iotserver.util.DataDeal;
 public class Fragment_iot_con extends Fragment {
 
     private static Fragment_iot_con iot_con;
+    private SendIOTData sendIOTData;
+    private boolean isOpen = false;
     private short heartbeat = 0;
+    private int ledColor = 0xFF000000;
     private int led_r = 0;
     private int led_g = 0;
     private int led_b = 0;
@@ -67,16 +70,19 @@ public class Fragment_iot_con extends Fragment {
     }
 
     private void init(){
+        sendIOTData = new SendIOTData();
         seekBar.setMax(10);
+        imgLight.setColorFilter(ledColor);
     }
 
     private void setStart(){
         imgLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ColorPickerDialog(getActivity(),"color", new ColorPickerDialog.OnColorChangedListener() {
+                new ColorPickerDialog(getActivity(),ledColor,"color", new ColorPickerDialog.OnColorChangedListener() {
                     @Override
                     public void colorChanged(int color) {
+                        ledColor = color;
                         int[] str = DataDeal.intTorgb(color);
                         led_r = str[1];
                         led_g = str[2];
@@ -110,14 +116,14 @@ public class Fragment_iot_con extends Fragment {
         swiLed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isOpen = isChecked;
                 controlIOT();
             }
         });
     }
 
-    public byte[] controlIOT(){
+    public void controlIOT(){
         heartbeat++;
-        SendIOTData sendIOTData = new SendIOTData();
         sendIOTData.setHeartbeat(heartbeat);
         //LED
         sendIOTData.getSensor_dev1().setV1(led_r);
@@ -125,7 +131,6 @@ public class Fragment_iot_con extends Fragment {
         sendIOTData.getSensor_dev1().setV3(led_b);
         //moto
         sendIOTData.getSensor_dev2().setV1(moto);
-        boolean isOpen = swiLed.isChecked();
 
         if(isOpen){
             sendIOTData.getSensor_dev3().setV1(1);
@@ -133,9 +138,19 @@ public class Fragment_iot_con extends Fragment {
         else{
             sendIOTData.getSensor_dev3().setV1(0);
         }
+    }
+
+    public byte[] send(){
         byte[] sendData = sendIOTData.getBytes();
         Log.d("send", DataDeal.bytesToHexString(sendData));
         return sendData;
     }
 
+    public SendIOTData getSendIOTData() {
+        return sendIOTData;
+    }
+
+    public void setSendIOTData(SendIOTData sendIOTData) {
+        this.sendIOTData = sendIOTData;
+    }
 }

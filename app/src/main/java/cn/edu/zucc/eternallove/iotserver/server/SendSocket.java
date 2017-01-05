@@ -22,7 +22,7 @@ public class SendSocket extends Thread {
         this.s = s;
     }
 
-    public synchronized static SendSocket getInstance(Socket s) {
+    public static SendSocket getInstance(Socket s) {
         if (msendSocket == null) {
             msendSocket = new SendSocket(s);
         }
@@ -40,7 +40,7 @@ public class SendSocket extends Thread {
                 os = s.getOutputStream();
                 out = new DataOutputStream(os);
                 sleep(100);
-                send(Fragment_iot_con.getInstance().controlIOT());
+                send(Fragment_iot_con.getInstance().send());
             }
         } catch (IOException e1) {
             e1.printStackTrace();

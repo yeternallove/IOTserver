@@ -129,11 +129,6 @@ public class SendIOTData {
 			bytes[31 + i] = t3[i];
 		}
 		DataDeal.setCheckCode(bytes);
-		 int iii=0;
-		if(DataDeal.check(bytes)) {
-			Log.i("朱文宇", iii + "");
-		}
-		else iii++;
 
 		return bytes;
 	}

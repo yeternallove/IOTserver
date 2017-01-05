@@ -4,4 +4,6 @@
     <string name="section_format" translatable="false">Hello World from section: %1$d</string>
 
     <string name="btn_send">Send</string>
+
+    <string name="send_the_content_is_empty">Send the content is empty</string>
 </resources>
