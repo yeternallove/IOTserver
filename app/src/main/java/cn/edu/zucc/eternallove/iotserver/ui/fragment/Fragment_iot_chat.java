@@ -40,7 +40,7 @@ import cn.edu.zucc.eternallove.iotserver.ui.adapter.ChatAdapter;
 
 public class Fragment_iot_chat extends Fragment {
 
-    private static final String CHECK = "^\\d{1,10}$";
+    private static final String CHECK = "^\\d{1,9}$";
     private static Fragment_iot_chat iot_chat;
 
     private FairyDB fairyDB;

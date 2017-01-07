@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.viewpager_container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        mViewPager.setOffscreenPageLimit(3);
         //左右切换fragment的时候改变title
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
